@@ -33,5 +33,5 @@ Nym: n1f0r6zzu5hgh4rprk2v2gqcyr0f5fr84zv69d3x
 ```
 <a href="https://www.buymeacoffee.com/Ch1ffr3punk" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-yellow.png" alt="Buy Me A Coffee" height="41" width="174"></a>
 
-NymX Text Messenger is dedicated to Alice and Bob.
+Castor is dedicated to Alice and Bob.
 
