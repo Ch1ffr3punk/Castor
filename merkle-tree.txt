@@ -9,11 +9,11 @@ Hermes\hermes.go: 68edb23b53c01259ab0d55baad3d5ccfe3469376
 Hermes\systemd.txt: 1ba4ede272e04edb6f4d74bf613c627ce5221fa6
 LICENSE: 304c26c26e8af4d60f1e0818baa73f8ac9b511fd
 LabGrotesque-Bold.ttf: b99c6670abf08cbcb148216c6ba0ad291c1fda1a
-README.md: 5381ee8cca6ed9605d608e91ce2f0dda4fffcec8
+README.md: 47cb9137c3a24654b2b33906c1287b6c5e0745bf
 bundle_font.go: 34439dd7ea34d8ae8f157cec11ab630e9dc70a68
 go.mod: 14f3fad16649b44b5499e020fa8fc4d63453465d
 go.sum: 23804ea565d3edad689852c7134383ffe321d3e4
 img\1.png: 831de12827c5ce1c4f067d889a2219c627e1a24e
 
 --- ROOT HASH (RIPEMD-160) ---
-5bea19ea2012e55f8d58646fd614293d00a0fa7e
+2f23fc16ef1568fbfafc7fa16ff934f8699f4bc8
