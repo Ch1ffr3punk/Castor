@@ -1,0 +1,19 @@
+--- FILE HASHES (RIPEMD-160) ---
+Castor.go: 522710927a7b99c6cf3981e85d8798a1a4b4ba6c
+Castor.json: d30b8608a2a1ee650a86d340de81380afdc15536
+Castor.png: f708c15376ef33488342d7240fcf263d36708211
+Hermes\blackwhitelist.txt: df754455eb70b2fdc00e5343ebc39a3267c10f6f
+Hermes\go.mod: 3dac96b3521c101b984437d243c1981b153526a5
+Hermes\go.sum: aaa6bffc21ba5e9a4b56faa4ac6fec4b5d90c742
+Hermes\hermes.go: 68edb23b53c01259ab0d55baad3d5ccfe3469376
+Hermes\systemd.txt: 1ba4ede272e04edb6f4d74bf613c627ce5221fa6
+LICENSE: 304c26c26e8af4d60f1e0818baa73f8ac9b511fd
+LabGrotesque-Bold.ttf: b99c6670abf08cbcb148216c6ba0ad291c1fda1a
+README.md: 8f5a3d187eeb9815604207bfa0db5cbcbba7d4b5
+bundle_font.go: 34439dd7ea34d8ae8f157cec11ab630e9dc70a68
+go.mod: 14f3fad16649b44b5499e020fa8fc4d63453465d
+go.sum: 23804ea565d3edad689852c7134383ffe321d3e4
+img\1.png: 831de12827c5ce1c4f067d889a2219c627e1a24e
+
+--- ROOT HASH (RIPEMD-160) ---
+b3e5e29c14d82415fbd7b0908455e97a421268c6

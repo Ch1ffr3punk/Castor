@@ -1,0 +1,11 @@
+{
+  "Castor_url": "https://iria.oc2mx.net/upload",
+  "local_article_dir": "C:/Users/yourname/Desktop/articles",
+  "nntp_config": {
+    "server": "news.tcpreset.net",
+    "port": 119,
+    "newsgroup": "alt.anonymous.messages",
+    "last_article": 0
+  },
+  "saved_nymx_email": ""
+}

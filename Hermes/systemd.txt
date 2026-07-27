@@ -1,0 +1,62 @@
+systemd Hermes Gateway Server Auto-Restart Setup
+
+Create Service (with auto-restart on crash)
+
+1. Create service file:
+
+sudo nano /etc/systemd/system/hermes.service
+
+Add this configuration:
+
+[Unit]
+Description=Hermes Gateway Server
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/hermes
+Restart=always
+RestartSec=10
+CapabilityBoundingSet=CAP_NET_BIND_SERVICE
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+StandardOutput=null
+StandardError=null
+
+[Install]
+WantedBy=multi-user.target
+
+Enable and start the service:
+
+sudo systemctl daemon-reload
+sudo systemctl enable hermes.service   # Start on boot
+sudo systemctl start hermes.service    # Start now
+
+Check status:
+
+sudo systemctl status hermes.service
+
+Remove Service (permanent disable)
+
+Option A: Disable but keep configuration
+
+sudo systemctl stop hermes.service      # Stop running process
+sudo systemctl disable hermes.service   # Remove boot autostart
+sudo systemctl mask hermes.service      # Prevent accidental start
+
+Option B: Complete removal
+
+sudo systemctl stop hermes.service           # Stop running process
+sudo systemctl disable hermes.service        # Remove boot autostart
+sudo systemctl mask hermes.service           # Optional: prevent accidental starts
+sudo rm /etc/systemd/system/hermes.service   # Delete service file
+sudo systemctl daemon-reload                 # Reload systemd
+
+Option C: Re-enable after masking
+
+sudo systemctl unmask hermes.service    # Undo masking
+sudo systemctl enable hermes.service    # Enable autostart again
+sudo systemctl start hermes.service     # Start the service
+Verify service is removed
+
+sudo systemctl status hermes.service    # Should show "not found"
+systemctl list-units | grep hermes      # Should show Nothing
+
