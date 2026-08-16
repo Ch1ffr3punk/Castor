@@ -108,7 +108,7 @@ type UnifiedConfig struct {
     CastorURL        string     `json:"Castor_url"`
     LocalArticleDir  string     `json:"local_article_dir"`
     NNTPConfig       NNTPConfig `json:"nntp_config"`
-    SavedNymXEmail    string     `json:"saved_nymx_email"`
+    SavedNymXEmail   string     `json:"saved_nymx_email"`
 }
 
 type NNTPConfig struct {
@@ -414,7 +414,7 @@ func (n *Castor) buildMessage(bodyText string) string {
     message.WriteString("To: " + strings.TrimSpace(n.toEntry.Text) + "\n")
 
     if nymx := n.getNymXHeaderForMessage(); nymx != "" {
-        message.WriteString("NOM: " + nymx + "\n")
+        message.WriteString("NymX-Mail: " + nymx + "\n")
     }
     if subject := strings.TrimSpace(n.subjectEntry.Text); subject != "" {
         encodedSubject := encodeMIMESubject(subject)
@@ -669,7 +669,7 @@ func (n *Castor) buildCompleteMIMEMessage(plainText string, attachment *Attachme
     message.WriteString("To: " + strings.TrimSpace(n.toEntry.Text) + "\n")
 
     if nymx := n.getNymXHeaderForMessage(); nymx != "" {
-        message.WriteString("NOM: " + nymx + "\n")
+        message.WriteString("NymX-Mail: " + nymx + "\n")
     }
     if subject := strings.TrimSpace(n.subjectEntry.Text); subject != "" {
         encodedSubject := encodeMIMESubject(subject)
@@ -1130,7 +1130,7 @@ func (n *Castor) showInfoPopup() {
     })
     okButton.Importance = widget.HighImportance
     content := container.NewVBox(
-        widget.NewLabelWithStyle("Castor v0.1.0", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}),
+        widget.NewLabelWithStyle("Castor v0.1.1", fyne.TextAlignCenter, fyne.TextStyle{Bold: true}),
         widget.NewSeparator(),
         container.NewHBox(layout.NewSpacer(), projectLink, layout.NewSpacer()),
         widget.NewLabelWithStyle("released under the Apache 2.0 license", fyne.TextAlignCenter, fyne.TextStyle{}),
@@ -1205,7 +1205,7 @@ func (n *Castor) loadSavedNymXEmail() {
 func (n *Castor) saveNymXEmail(email string) {
     n.unifiedConfig.SavedNymXEmail = email
     if err := n.saveUnifiedConfig(); err != nil {
-        n.updateStatus("Error", fmt.Sprintf("Failed to save NOM: %v", err))
+        n.updateStatus("Error", fmt.Sprintf("Failed to save NymX-Mail: %v", err))
     }
 }
 
@@ -1221,7 +1221,7 @@ func (n *Castor) handleNymXEntryChange() {
                 if currentValue != "" && isValidEmail(currentValue) {
                     n.saveNymXEmail(currentValue)
                 } else if currentValue == "" {
-                    n.updateStatus("NOM", "No NOM header for this message")
+                    n.updateStatus("NymX-Mail", "No NymX-Mail header for this message")
                 }
             }
         }
@@ -1229,7 +1229,7 @@ func (n *Castor) handleNymXEntryChange() {
 }
 
 func (n *Castor) getMaxLabelWidth() float32 {
-    labels := []string{"To:", "NOM:", "Subject:", "Followup-To:", "References:", "Newsgroups:"}
+    labels := []string{"To:", "NymX-Mail:", "Subject:", "Followup-To:", "References:", "Newsgroups:"}
     var maxWidth float32 = 0
     for _, labelText := range labels {
         tmpLabel := widget.NewLabel(labelText)
@@ -1727,7 +1727,7 @@ func (n *Castor) showUnifiedConfig() {
     newsgroupEntry.SetText(n.unifiedConfig.NNTPConfig.Newsgroup)
     savedNymXEntry := widget.NewEntry()
     savedNymXEntry.SetText(n.unifiedConfig.SavedNymXEmail)
-    savedNymXEntry.PlaceHolder = "Optional NOM address"
+    savedNymXEntry.PlaceHolder = "Optional NymX-Mail address"
 
     resetCacheBtn := widget.NewButton("Reset Esub Cache", func() {
         dialog.ShowConfirm("Reset Cache", "Delete all cached esubs?", func(confirmed bool) {
@@ -1750,7 +1750,7 @@ func (n *Castor) showUnifiedConfig() {
         {Text: "NNTP Port", Widget: nntpPortEntry},
         {Text: "Newsgroup", Widget: newsgroupEntry},
         {Text: "", Widget: widget.NewSeparator()},
-        {Text: "Saved NOM", Widget: savedNymXEntry},
+        {Text: "NymX-Mail", Widget: savedNymXEntry},
         {Text: "", Widget: resetCacheBtn},
     }
 
@@ -1842,7 +1842,7 @@ func (n *Castor) setupResponsiveUI() fyne.CanvasObject {
     toEntry := NewFocusAwareEntry()
     toEntry.PlaceHolder = "Recipient"
     nymxEntry := NewFocusAwareEntry()
-    nymxEntry.PlaceHolder = "NOM (optional)"
+    nymxEntry.PlaceHolder = "NymX-Mail (optional)"
     subjectEntry := NewFocusAwareEntry()
     subjectEntry.PlaceHolder = "Subject"
     followupToEntry := NewFocusAwareEntry()
@@ -1899,7 +1899,7 @@ func (n *Castor) setupResponsiveUI() fyne.CanvasObject {
         topBar,
         widget.NewSeparator(),
         n.createCompactField("To", toEntry),
-        n.createCompactField("NOM", nymxEntry),
+        n.createCompactField("NymX-Mail", nymxEntry),
         n.createCompactField("Subject", subjectEntry),
         n.createCompactField("Followup-To", followupToEntry),
         n.createCompactField("References", referencesEntry),
