@@ -6,7 +6,7 @@ As you can see in the picture, Castor has some unique features you won't find in
 
 ![Castor](img/1.png)
 
-1\. A NOM (NymX Onion Mailbox) header, allowing you to promote your [NymX Onion Mailbox](https://github.com/Ch1ffr3punk/NymX-Messenger) in outgoing anonymous email messages.
+1\. A NymX Mail header, allowing you to promote your [NymX Mail address](https://github.com/Ch1ffr3punk/NymX-Mail) in outgoing anonymous email messages.
 
 2\. The Attach button, which you can use for [YAMN](https://github.com/crooks/yamn) outfiles and [AEC](https://github.com/Ch1ffr3punk/AEC)-QR Codes.
 
